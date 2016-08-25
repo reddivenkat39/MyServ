@@ -1,4 +1,4 @@
-package com.tabner.employee.service.security;
+package com.tabner.employee.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,9 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.tabner.employee.service.jpaconnection.IUsers;
 
 @Configuration
 @EnableWebSecurity
@@ -24,8 +22,9 @@ public class LoginAuthenticate  extends WebSecurityConfigurerAdapter{
 	UserDetailsService userDetailsService;
 	
 	 @Autowired
-		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	 @Override
+		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+			auth.userDetailsService(userDetailsService);
 		}
 	
 
