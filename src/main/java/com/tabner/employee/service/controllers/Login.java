@@ -15,8 +15,4 @@ IUsers user;
 public String LoginPage(Model m){
 	return "login";
 }
-@RequestMapping("/success")
-public String success(Model m){
-	return "success";
-}
 }

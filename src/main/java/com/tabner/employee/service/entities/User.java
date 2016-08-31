@@ -26,9 +26,6 @@ public class User implements Serializable {
 	@Column(name="login_password")
 	private String loginPassword;
 
-	private String role;
-
-	private String username;
 
 	public User() {
 	}
@@ -65,20 +62,5 @@ public class User implements Serializable {
 		this.loginPassword = loginPassword;
 	}
 
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String getUsername() {
-		return this.username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 }
