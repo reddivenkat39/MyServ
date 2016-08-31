@@ -4,31 +4,40 @@
     <title>Home</title>
     <script type="text/javascript" src="../js/username.js" th:href="@{/js/username.js}"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../css/loginstyle.css" th:href="@{/css/loginstyle.css}" />
 </head>
 <body>
-<div class="loginpage loginform">
-<div class="loginform">
 
 <div class="error" th:if="${param.error}" th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
       Reason: <span th:text="${errorMsg}"></span> 
     </div>
- <div th:if="${param.logout}">
- <div class="logoutMessage"> 
-   Logged out
-   </div>
+<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+				
+			<div class="login-form">
+			<form th:action="@{/login}" method="post">
+				<div class="control-group">
+				<input th:type="text" class="login-field" name="username" value="" placeholder="username" id="login-name"/>
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input th:type="password" class="login-field" name="password" value="" placeholder="password" id="login-pass"/>
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+				<input th:type="submit" name="" class="btn btn-primary btn-large btn-block" ></input>
+				<div th:if="${param.logout}">
+         <div class="logoutMessage"> 
+             Logged out
+            </div>
 </div>
-<form th:action="@{/login}" method="post">
-      <label th:for="username">Username: </label>
-      <input th:type="text" id="unameid" value="" name="username"/>
-      <br></br>
-      <br></br>
-      <label th:for="password">Password:</label>
-      <input th:type="password" id="pswdid" value="" name="password"/>
-      <br></br>
-      <input type="submit" value="Log in"/>
-  </form>
-  
-</div>
-</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

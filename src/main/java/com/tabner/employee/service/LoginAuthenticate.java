@@ -27,7 +27,7 @@ public class LoginAuthenticate  extends WebSecurityConfigurerAdapter{
 	
    @Override
    public void configure(WebSecurity web) throws Exception {
-     web.ignoring().antMatchers("/js/**","/username");
+     web.ignoring().antMatchers("/js/**","/css/**","/username");
    }
    
 	@Override
