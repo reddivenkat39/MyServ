@@ -30,7 +30,6 @@ public String error = null;
 			if (user == null) {
 				throw new BadCredentialsException("User not found");
 			}
-			
 			List<GrantedAuthority> auth = AuthorityUtils
 					.commaSeparatedStringToAuthorityList("ROLE_USER");
 			if(user.getEmailAddress()!=null){
@@ -43,7 +42,9 @@ public String error = null;
 			String password = user.getLoginPassword();
 			String Email = user.getEmailAddress();
 			System.out.println(password+ " "+ Email+" ");
+			
 			return new org.springframework.security.core.userdetails.User(Email, password,
 					auth);
+			
 }
 }

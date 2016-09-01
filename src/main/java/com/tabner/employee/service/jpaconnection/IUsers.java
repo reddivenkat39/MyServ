@@ -11,5 +11,6 @@ public interface IUsers extends JpaRepository<User,Long>{
 
 	@Query("SELECT a FROM User a where a.emailAddress=?1")
 	public User finduserByUserName(String username);
-	
+	@Query("SELECT a FROM User a where a.firstName=?1 and a.lastName=?2")
+	public User finduserByFirstAndLstName(String firstname,String lastname);
 }

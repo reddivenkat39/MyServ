@@ -7,14 +7,10 @@
     <link type="text/css" rel="stylesheet" href="../css/loginstyle.css" th:href="@{/css/loginstyle.css}" />
 </head>
 <body>
-
-<div class="error" th:if="${param.error}" th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
-      Reason: <span th:text="${errorMsg}"></span> 
-    </div>
 <div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>Login</h1>
+				<h1>Tabner</h1>
 			</div>
 				
 			<div class="login-form">
@@ -29,13 +25,22 @@
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 
-				<input th:type="submit" name="" class="btn btn-primary btn-large btn-block" ></input>
+				<input th:type="submit" value="Login"  class="btn btn-primary btn-large btn-block" />
 				<div th:if="${param.logout}">
-         <div class="logoutMessage"> 
+      	   		<div class="logoutMessage"> 
              Logged out
-            </div>
-</div>
+        	    </div>
+				</div>
+				<div class="error" th:if="${param.error}" th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+      			 <span th:text="${errorMsg}"></span> 
+    			</div>
 				</form>
+				<div class=" register">
+				<form th:action="@{/SignUp}" method="post">
+			<input th:type="submit" value="Register"  class="btn btn-primary btn-large btn-block" ></input>
+			</form>
+			</div>
+			
 			</div>
 		</div>
 	</div>
